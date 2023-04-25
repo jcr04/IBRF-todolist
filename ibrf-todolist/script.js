@@ -43,6 +43,10 @@ function addTask() {
     urgentButton.textContent = 'Urgente';
     urgentButton.classList.add('urgentButton');
     li.appendChild(urgentButton);
+    
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remover';
+    removeButton.classList.add('removeButton');
 
     importantButton.addEventListener('click', () => {
         li.classList.toggle('important')
@@ -52,9 +56,15 @@ function addTask() {
         li.classList.toggle('urgent')
     })
 
+    removeButton.addEventListener('click', () => {
+        li.remove();
+    });
+
+    li.appendChild(removeButton);
+
     li.addEventListener('click', () => {
-        li.classList.toggle('completed')
-    })
+        li.classList.toggle('completed');
+    });
 
     taskList.appendChild(li);
     taskInput.value = "";
