@@ -26,3 +26,36 @@ function addTask() {
     taskInput.value = "";
 }
 
+
+function addTask() {
+    if(taskInput.value.trim() === '') return;
+
+    const li = document.createElement('li');
+    li.textContent = taskInput.value;
+    li.classList.add('taskItem');
+
+    const importantButton = document.createElement('button');
+    importantButton.textContent = 'Importante';
+    importantButton.classList.add('importantButton');
+    li.appendChild(importantButton);
+
+    const urgentButton = document.createElement('button');
+    urgentButton.textContent = 'Urgente';
+    urgentButton.classList.add('urgentButton');
+    li.appendChild(urgentButton);
+
+    importantButton.addEventListener('click', () => {
+        li.classList.toggle('important')
+    })
+
+    urgentButton.addEventListener('click', () => {
+        li.classList.toggle('urgent')
+    })
+
+    li.addEventListener('click', () => {
+        li.classList.toggle('completed')
+    })
+
+    taskList.appendChild(li);
+    taskInput.value = "";
+}

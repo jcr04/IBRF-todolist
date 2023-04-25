@@ -45,3 +45,10 @@ h1{
     color: #888;
 }
 
+.taskItem.important {
+    background-color: #FFE066;
+}
+
+.taskItem.urgent {
+    background-color: #FF8C8C;
+}
