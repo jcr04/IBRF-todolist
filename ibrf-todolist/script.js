@@ -69,3 +69,36 @@ function addTask() {
     taskList.appendChild(li);
     taskInput.value = "";
 }
+
+function editTask() {
+    const li = this;
+    const taskText = li.textContent;
+
+    const input = document.createElement('input');
+    input.value = taskText;
+    input.classList.add('editInput');
+
+    input.addEventListener('keydown', (event) => {
+        if(event.key === 'Enter') {
+            li.textContent = input.value;
+            li.appendChild(editButton);
+            li.appendChild(deleteButton);
+        }
+    })
+
+    li.textContent = '';
+    li.appendChild(input);
+    input.focus();
+}
+
+function addEditButton(li) {
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Editar';
+    editButton.classList.add('editButton');
+
+    editButton.addEventListener('click', editTask);
+
+    li.appendChild(editButton);
+}
+
+addEditButton(li);
