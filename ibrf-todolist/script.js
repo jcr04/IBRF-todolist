@@ -26,7 +26,7 @@ function addTask() {
     taskInput.value = "";
 }
 
-
+//função de prioridade da tarefa
 function addTask() {
     if(taskInput.value.trim() === '') return;
 
